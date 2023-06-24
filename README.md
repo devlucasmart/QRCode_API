@@ -8,3 +8,5 @@ Versão do Java: 11
 Versão do Spring Boot: 2.7.13
 
 Tabela de Cores: https://celke.com.br/artigo/tabela-de-cores-html-nome-hexadecimal-rgb
+
+Como Criar uma Imagem docker de uma aplicação: https://papo.dev/posts/criando-uma-imagem-docker-com-spring-boot
