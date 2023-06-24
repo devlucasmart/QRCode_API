@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.awt.*;
 import java.io.IOException;
 
 @RestController
@@ -22,10 +23,14 @@ public class QRCodeGeneratorController {
     @PostMapping("api/qrcode")
     public ResponseEntity<FileSystemResource> getQRCode(@RequestBody RequestDTO request){
         var documentUrl= request.getDocumentUrl();
-        var qrCodeSize = 300;
+        var qrCodeSize = 250;
 
         try {
-            qrCodeGeneratorService.generateQRCodeImage(documentUrl, qrCodeSize, qrCodeSize, QR_CODE_IMAGE_PATH);
+            Color foregroundColor = Color.decode(request.getForegroundColor());
+            Color backgroundColor = Color.decode(request.getBackgroundColor());
+
+            qrCodeGeneratorService.generateQRCodeImage(documentUrl, qrCodeSize, qrCodeSize, QR_CODE_IMAGE_PATH,
+                                                        foregroundColor, backgroundColor);
             FileSystemResource qrCodeFile = new FileSystemResource(QR_CODE_IMAGE_PATH);
             return ResponseEntity.ok()
                     .contentType(MediaType.IMAGE_PNG)

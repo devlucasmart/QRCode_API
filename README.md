@@ -6,3 +6,5 @@ Referência: https://medium.com/nerd-for-tech/how-to-generate-qr-code-in-java-sp
 Versão do Java: 11
 
 Versão do Spring Boot: 2.7.13
+
+Tabela de Cores: https://celke.com.br/artigo/tabela-de-cores-html-nome-hexadecimal-rgb

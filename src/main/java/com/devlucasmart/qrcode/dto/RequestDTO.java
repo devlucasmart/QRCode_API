@@ -1,13 +1,12 @@
 package com.devlucasmart.qrcode.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 public class RequestDTO {
     private String documentUrl;
-
-    public String getDocumentUrl() {
-        return documentUrl;
-    }
-
-    public void setDocumentUrl(String documentUrl) {
-        this.documentUrl = documentUrl;
-    }
+    private String foregroundColor;
+    private String backgroundColor;
 }
