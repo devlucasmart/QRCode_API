@@ -1,0 +1,18 @@
+{
+	"info": {
+		"_postman_id": "8ef65292-6195-4dd9-abf5-f2543ece74fd",
+		"name": "QRCode",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27426972"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
