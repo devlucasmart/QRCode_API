@@ -3,7 +3,7 @@ package com.devlucasmart.qrcode.controller;
 import com.devlucasmart.qrcode.dto.RequestDTO;
 import com.devlucasmart.qrcode.service.QRCodeGeneratorService;
 import com.google.zxing.WriterException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.awt.*;
 import java.io.IOException;
 
+@RequiredArgsConstructor
 @RestController
 public class QRCodeGeneratorController {
     private static final String QR_CODE_IMAGE_PATH = "./src/main/resources/static/img/QRCode.png";
+    private final QRCodeGeneratorService qrCodeGeneratorService;
 
-    @Autowired
-    private QRCodeGeneratorService qrCodeGeneratorService;
     @PostMapping("api/qrcode")
     public ResponseEntity<FileSystemResource> getQRCode(@RequestBody RequestDTO request){
         var documentUrl= request.getDocumentUrl();

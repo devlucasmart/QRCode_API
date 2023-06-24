@@ -9,8 +9,28 @@
 		{
 			"name": "New Request",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"documentUrl\": \"https://wa.me/5561992982212\",\n  \"foregroundColor\": \"#000000\",\n  \"backgroundColor\": \"#778899\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/qrcode",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"qrcode"
+					]
+				}
 			},
 			"response": []
 		}

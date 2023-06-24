@@ -2,7 +2,6 @@ package com.devlucasmart.qrcode.service;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
-import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import org.springframework.stereotype.Service;
@@ -12,8 +11,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.FileSystems;
-import java.nio.file.Path;
+import java.util.stream.IntStream;
 
 @Service
 public class QRCodeGeneratorService {
@@ -31,13 +29,10 @@ public class QRCodeGeneratorService {
                 graphics.fillRect(0, 0, width, height);
                 graphics.setColor(foregroundColor);
 
-                for (int i = 0; i < width; i++) {
-                    for (int j = 0; j < height; j++) {
-                        if (bitMatrix.get(i, j)) {
-                            graphics.fillRect(i, j, 1, 1);
-                        }
-                    }
-                }
+                IntStream.range(0, width)
+                        .forEach(i -> IntStream.range(0, height)
+                                .filter(j -> bitMatrix.get(i, j))
+                                .forEach(j -> graphics.fillRect(i, j, 1, 1)));
 
                 File qrCodeFile = new File(filePath);
                 ImageIO.write(qrCodeImage, "png", qrCodeFile);
